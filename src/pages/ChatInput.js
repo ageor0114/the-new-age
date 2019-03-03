@@ -45,11 +45,7 @@ class ChatInput extends React.Component {
       if (this.state.first) this.props.onSend(this.state.chatInput);
       else
       {
-        this.setState(prevState => {
-          let newState = prevState;
-          newState.first = false;
-          return newState;
-        })
+        this.state.first = false;
         this.props.onSend("And then" + this.state.chatInput);
       }
 

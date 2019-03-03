@@ -11,10 +11,10 @@ require('../style/ChatApp.css');
 
 const renderer = ({hours, minutes, seconds, completed}) => {
   if (completed){
-    return <h1 className="timerTitle">DONE</h1>;
+    return <h1 id="inline" className="timerTitle">GAME OVER</h1>;
   }
   else{
-    return <h1 className="timerTitle">{seconds} seconds</h1>;
+    return <h1 id="inline" className="timerTitle">{seconds} seconds</h1>;
   }
 }
 
@@ -22,7 +22,7 @@ class ChatApp extends React.Component {
   socket = {};
   constructor(props) {
     super(props);
-    this.state = { canType:true,
+    this.state = { showResult: false, canType:true,
       messages: [],
       turn: 'you',
       keywords: [
@@ -155,7 +155,17 @@ getNewKeyword(){
 
   onComplete(){
     this.state.canType = true;
-    console.log("Can Type? " + this.state.canType);
+    this.state.showResult = true;
+
+    var resultX = "Once upon a time, in the land of HackTrin . . . ";
+    for (var i = 0; i < this.state.messages.length; i++)
+    {
+      resultX += "\n";
+      resultX += this.state.messages[i].message;
+    }
+
+    this.state.result = resultX;
+    alert(resultX);
     }
 
   changeCanType(val){
@@ -174,13 +184,12 @@ getNewKeyword(){
     turn = <h1 id="inline">Your Turn</h1>;
     return (
       <div>
-      <Grid item xs={12}>
+      {!this.state.showResult && <Grid item xs={12}>
       <div className="together">
       <div className="container">
         <div className="miniBar">
-          {turn}
           <br/>
-          <h1 id="inline">Key Word: {this.state.keywords[keyIndex]}</h1>
+          <h1 id="inline" className="keyword">KEY WORD: {this.state.keywords[keyIndex]}</h1>
           <Countdown renderer={renderer} onComplete={this.onComplete} id="inline" autostart="true" date={Date.now() + 10000}/>
         </div>
         <Messages messages={this.state.messages} />
@@ -192,7 +201,11 @@ getNewKeyword(){
          <ChatInput2 onSend={this.sendHandler2} />
        </div>*/}
        </div>
-       </Grid>
+       </Grid>}
+       {this.state.showResult && <div>
+          <h1>The Greatest Story Of All Time</h1>
+          <p>{this.state.result}</p>
+        </div>}
       </div>
     );
   }
