@@ -18,13 +18,13 @@ class HomePage extends React.Component{
     render(){
       const { checked } = this.state;
 	return(
-
+    
     <center>
     <Grow in={checked} style={{ transitionDelay: checked ? 500 : 0 }}>
       <Typography component="h2" style={titleTextStyle} variant="display4" gutterBottom>
       <br />
       <br />
-        <img src= "https://i.imgur.com/pybuzme.jpg" class="center" id="logo"/>
+        <img src= "https://i.imgur.com/9oTdMU1.png" class="center" id="logo"/>
       </Typography>
     </Grow>
     <Grow in={checked} style={{ transitionDelay: checked ? 1000 : 0 }}>

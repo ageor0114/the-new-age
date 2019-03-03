@@ -104,7 +104,7 @@ export default class App extends React.Component{
 				justify="center">
 				    <Grid item sm={6}>
 					<Header></Header>
-					<Route exact path="/" component={HomePage} />
+					<Route exact path="/" component={SApp} />
 					<Route exact path="/login" component={LoginPage} />
 					<Route exact path="/signup" component={SignupPage} />
 					<Route exact path="/sandwiches" component={SandwichesPage} />
