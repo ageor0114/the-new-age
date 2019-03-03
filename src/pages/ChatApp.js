@@ -12,7 +12,7 @@ class ChatApp extends React.Component {
   socket = {};
   constructor(props) {
     super(props);
-    this.state = { messages: [] };
+    this.state = { messages: [], messages2:[]};
     this.sendHandler = this.sendHandler.bind(this);
 
     // Connect to the server
@@ -25,6 +25,7 @@ class ChatApp extends React.Component {
   }
 
   sendHandler(message) {
+    console.log(this);
     const messageObject = {
       username: this.props.username,
       message
@@ -37,11 +38,36 @@ class ChatApp extends React.Component {
     this.addMessage(messageObject);
   }
 
+  sendHandler2(message) {
+    console.log(this);
+    const messageObject = {
+      username: this.props.username,
+      message
+    };
+
+    // Emit the message to the server
+    this.socket.emit('client:message', messageObject);
+
+    messageObject.fromMe = true;
+    this.addMessage2(messageObject);
+  }
+
+
+
   addMessage(message) {
     // Append the message to the component state
     const messages = this.state.messages;
     messages.push(message);
     this.setState({ messages });
+  }
+
+  addMessage2(message) {
+    // Append the message to the component state
+    this.setState(prevState => {
+      let newState = prevState;
+      newState.messages2.push(message);
+      return newState;
+    });
   }
 
   render() {
@@ -56,8 +82,8 @@ class ChatApp extends React.Component {
       </div>
        <div className="container2">
          <h3>Group Chat</h3>
-         <Messages2 messages={this.state.messages} />
-         <ChatInput2 onSend={this.sendHandler} />
+         <Messages2 messages={this.state.messages2} />
+         <ChatInput2 onSend={this.sendHandler2} />
        </div>
        </div>
        </Grid>
