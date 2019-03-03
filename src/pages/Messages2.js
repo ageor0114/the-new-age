@@ -12,11 +12,13 @@ class Messages2 extends React.Component {
     // Loop through all the messages in the state and create a Message component
     const messages = this.props.messages.map((message, i) => {
         return (
+
           <Message2
             key={i}
             username={message.username}
             message={message.message}
              />
+            
         );
       });
 

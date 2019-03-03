@@ -12,7 +12,10 @@ class Messages extends React.Component {
     // Loop through all the messages in the state and create a Message component
     const messages = this.props.messages.map((message, i) => {
         return (
-          <div>
+          <div className ='pls'>
+          <div className ='bubble'>
+          {message.username[0].toUpperCase()}
+          </div>
           <Message
 
             key={i}
