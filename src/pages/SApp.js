@@ -34,9 +34,9 @@ class SApp extends React.Component {
     // Initial page load, show a simple login form
     return (
       <form onSubmit={this.usernameSubmitHandler} className="username-container">
-        <h1>React Instant Chat</h1>
+        <h1>And After . . .</h1>
         <div>
-          <inputs
+          <input
             type="text"
             onChange={this.usernameChangeHandler}
             placeholder="Enter a username..."

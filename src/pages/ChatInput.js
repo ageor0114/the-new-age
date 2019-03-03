@@ -27,6 +27,7 @@ class ChatInput extends React.Component {
 
   render() {
     return (
+      <div>
       <form className="chat-input" onSubmit={this.submitHandler}>
         <input type="text"
           onChange={this.textChangeHandler}
@@ -34,6 +35,7 @@ class ChatInput extends React.Component {
           placeholder="Write a message..."
           required />
       </form>
+      </div>
     );
   }
 }
