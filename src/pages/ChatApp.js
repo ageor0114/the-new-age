@@ -82,9 +82,9 @@ class ChatApp extends React.Component {
         <ChatInput onSend={this.sendHandler} />
       </div>
        <div className="container2">
-         <h3>Group Chat</h3>
-         <Messages messages={this.state.messages2} />
-         <ChatInput onSend={this.sendHandler2} />
+         <h3>Chat</h3>
+         <Messages2 messages={this.state.messages2} />
+         <ChatInput2 onSend={this.sendHandler2} />
        </div>
        </div>
        </Grid>
