@@ -52,13 +52,6 @@ class Header extends React.Component{
 	if(this.props.auth.isLoaded && !this.props.auth.isEmpty){
 	    // user is logged in!
 	    greeting = <span>Hello {this.props.auth.email}!
-		<Link to="/sandwiches">
-		    <Button variant="contained"
-			style={{marginLeft: 30}}
-			    color="secondary">
-			Muh Sandwiches
-		    </Button>
-	    	</Link>
 
 		<Button color="inherit"
 			onClick={() => {this.logout();}}
@@ -69,16 +62,6 @@ class Header extends React.Component{
 	    // user is not logged in
 	    greeting =
 		<span>
-        <Link to="/SApp">
-          <Button color="inherit">
-            Testing
-          </Button>
-        </Link>
-		<Link to="/testAva">
-          <Button color="inherit">
-            testAva
-          </Button>
-        </Link>
         <Link to="/login">
 			<Button color="inherit">
 			Login
