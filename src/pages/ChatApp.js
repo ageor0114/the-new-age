@@ -6,13 +6,24 @@ import Messages from './Messages';
 import ChatInput from './ChatInput';
 import Messages2 from './Messages2';
 import ChatInput2 from './ChatInput2';
+import Countdown from 'react-countdown-now';
 require('../style/ChatApp.css');
 
 class ChatApp extends React.Component {
   socket = {};
   constructor(props) {
     super(props);
-    this.state = { messages: [], messages2:[]};
+    this.state = { messages: [],
+      turn: 'you',
+      keywords: [
+        'dog',
+        'cat',
+        'animal',
+        'sprite',
+        'bottle',
+        'dragon',
+        'goldfish'
+      ], messages2:[]};
     this.sendHandler = this.sendHandler.bind(this);
     this.sendHandler2 = this.sendHandler2.bind(this);
 
@@ -62,6 +73,12 @@ class ChatApp extends React.Component {
     this.setState({ messages });
   }
 
+getNewKeyword(){
+    let num = Math.floor(Math.random() * this.state.keywords.length);
+    
+    return num;
+  }
+
   addMessage2(message) {
     // Append the message to the component state
     this.setState(prevState => {
@@ -72,14 +89,23 @@ class ChatApp extends React.Component {
   }
 
   render() {
+    let keyIndex = this.getNewKeyword();
+    let turn;
+
+    let t
+    turn = <h1 id="inline">Your Turn</h1>;
     return (
       <div>
       <Grid item xs={12}>
       <div className="together">
       <div className="container">
-        <h3>Build a Story!</h3>
+        <div className="miniBar">
+          {turn}
+          <h1 id="inline">Key Word: {this.state.keywords[keyIndex]}</h1>
+          <Countdown id="inline" autostart="true" date={Date.now() + 10000}/>
+        </div>
         <Messages messages={this.state.messages} />
-        <ChatInput onSend={this.sendHandler} />
+        <ChatInput keyword={this.state.keywords[keyIndex]} onSend={this.sendHandler} />
       </div>
        <div className="container2">
          <h3>Chat</h3>
