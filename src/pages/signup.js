@@ -152,8 +152,7 @@ class SignupPage extends React.Component{
 	    </form>;
 	}
 	if(this.props.auth.isLoaded && !this.props.auth.isEmpty){
-	    // auth is warmed up
-	    // and user is not logged in
+
 	    payload = <div>
 		<div>
 		    Welcome {this.props.auth.email}
