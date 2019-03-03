@@ -40,7 +40,7 @@ class ChatInput extends React.Component {
       newState.style='normal';
       return newState;
       });
-      this.props.onSend(this.state.chatInput);
+      this.props.onSend("And then " + this.state.chatInput);
     }
 
     else 

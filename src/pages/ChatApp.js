@@ -6,6 +6,7 @@ import Messages from './Messages';
 import ChatInput from './ChatInput';
 import Messages2 from './Messages2';
 import ChatInput2 from './ChatInput2';
+import Countdown from 'react-countdown-now';
 require('../style/ChatApp.css');
 
 class ChatApp extends React.Component {
@@ -13,6 +14,7 @@ class ChatApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = { messages: [],
+      turn: 'you',
       keywords: [
         'dog',
         'cat',
@@ -88,13 +90,20 @@ getNewKeyword(){
 
   render() {
     let keyIndex = this.getNewKeyword();
+    let turn;
+
+    let t
+    turn = <h1 id="inline">Your Turn</h1>;
     return (
       <div>
       <Grid item xs={12}>
       <div className="together">
       <div className="container">
-        <h3>React Chat App</h3>
-        <b><p>Keyword: {this.state.keywords[keyIndex]}</p></b>
+        <div className="miniBar">
+          {turn}
+          <h1 id="inline">Key Word: {this.state.keywords[keyIndex]}</h1>
+          <Countdown id="inline" autostart="true" date={Date.now() + 10000}/>
+        </div>
         <Messages messages={this.state.messages} />
         <ChatInput keyword={this.state.keywords[keyIndex]} onSend={this.sendHandler} />
       </div>

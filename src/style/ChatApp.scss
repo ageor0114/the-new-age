@@ -1,3 +1,11 @@
+html {
+    min-height: 100%;
+    margin: 0;
+}
+body {
+    min-height: 100%;
+    margin: 0;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -21,6 +29,16 @@
 
 #normal{
   background-color: white;
+}
+
+#inline{
+  display: inline;
+}
+.miniBar{
+  background-color: #00733A;
+  height: 60px;
+  color: white;
+  font-size: 7px;
 }
 .together{
   display: flex;
