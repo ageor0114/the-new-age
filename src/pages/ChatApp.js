@@ -75,7 +75,7 @@ class ChatApp extends React.Component {
 
 getNewKeyword(){
     let num = Math.floor(Math.random() * this.state.keywords.length);
-    
+
     return num;
   }
 
@@ -101,7 +101,9 @@ getNewKeyword(){
       <div className="container">
         <div className="miniBar">
           {turn}
+          <br/>
           <h1 id="inline">Key Word: {this.state.keywords[keyIndex]}</h1>
+          <br/>
           <Countdown id="inline" autostart="true" date={Date.now() + 10000}/>
         </div>
         <Messages messages={this.state.messages} />
