@@ -69,7 +69,12 @@ class Header extends React.Component{
 	    // user is not logged in
 	    greeting =
 		<span>
-		    <Link to="/login">
+        <Link to="/ChatApp">
+          <Button color="inherit">
+            Chat App
+          </Button>
+        </Link>
+        <Link to="/login">
 			<Button color="inherit">
 			Login
 			</Button>
