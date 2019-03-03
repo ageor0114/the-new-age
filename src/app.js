@@ -30,6 +30,7 @@ import LoginPage from './pages/login';
 import SignupPage from './pages/signup';
 import SandwichesPage from './pages/sandwiches';
 import ChatApp from './pages/ChatApp';
+import SApp from './pages/SApp';
 
 
 
@@ -108,6 +109,7 @@ export default class App extends React.Component{
 					<Route exact path="/signup" component={SignupPage} />
 					<Route exact path="/sandwiches" component={SandwichesPage} />
           <Route exact path="/ChatApp" component={ChatApp}/>
+          <Route exact path="/SApp" component={SApp}/>
 				    </Grid>
 				</Grid>
 			    </div>
