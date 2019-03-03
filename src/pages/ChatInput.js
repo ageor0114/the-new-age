@@ -3,7 +3,7 @@ import React from 'react';
 class ChatInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { chatInput: '' };
+    this.state = { chatInput: '', style: 'normal' };
 
     // React ES6 does not bind 'this' to event handlers by default
     this.submitHandler = this.submitHandler.bind(this);
@@ -24,26 +24,73 @@ class ChatInput extends React.Component {
     //console.log("Submit Handler: " + this.props.keyword);
 
     // Clear the input box
-    this.setState({ chatInput: '' });
+    this.setState(prevState => {
+      let newState = prevState;
+      newState.chatInput = '';
+      return newState;
+    });
 
     // Call the onSend callback with the chatInput message
     console.log("keyword: " + this.props.keyword);
     console.log("output: " + this.state.chatInput);
-    if (this.hasWord(this.props.keyword,this.state.chatInput))this.props.onSend(this.state.chatInput);
-    else alert('Sorry, you forgot to include the word!');
+    if (this.hasWord(this.props.keyword,this.state.chatInput))
+    {
+      this.setState(prevState => {
+      let newState = prevState;
+      newState.style='normal';
+      return newState;
+      });
+      this.props.onSend(this.state.chatInput);
+    }
+
+    else 
+    {
+      this.setState(prevState => {
+      let newState = prevState;
+      newState.style='wrong';
+      return newState;
+      });
+    }
+      //alert('Sorry, you forgot to include the word!');
   }
 
   textChangeHandler(event)  {
-    this.setState({ chatInput: event.target.value });
+    /*if (event != null)
+    {
+    this.setState(prevState => {
+      let newState = prevState;
+      newState.chatInput = event.target.value;
+      return newState;
+    });
+    }*/
+
+    this.setState({ chatInput: event.target.value, style: this.state.style });
     console.log("TCH Text: " + this.state.chatInput);
     console.log("TCH Keyword: " + this.props.keyword);
+    if (this.hasWord(this.props.keyword,this.state.chatInput))
+    {
+      this.setState(prevState => {
+      let newState = prevState;
+      newState.style='right';
+      return newState;
+      });
+    }
+    else
+    {
+      this.setState(prevState => {
+      let newState = prevState;
+      newState.style='normal';
+      return newState;
+      });
+    }
   }
 
   render() {
     return (
       <div>
-      <form className="chat-input" onSubmit={this.submitHandler}>
+      <form className="chat-input"  onSubmit={this.submitHandler}>
         <input type="text"
+        id={this.state.style}
           onChange={this.textChangeHandler}
           value={this.state.chatInput}
           placeholder="Write a message..."

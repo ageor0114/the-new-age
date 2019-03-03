@@ -9,6 +9,19 @@
   flex-direction: column;
 }
 
+#right{
+  color:white;
+  background-color: green;
+}
+
+#wrong{
+  color:white;
+  background-color: red;
+}
+
+#normal{
+  background-color: white;
+}
 .together{
   display: flex;
   justify-content: space-between;

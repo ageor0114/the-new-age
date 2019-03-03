@@ -95,7 +95,6 @@ getNewKeyword(){
       <div className="container">
         <h3>React Chat App</h3>
         <b><p>Keyword: {this.state.keywords[keyIndex]}</p></b>
-        <h3>Build a Story!</h3>
         <Messages messages={this.state.messages} />
         <ChatInput keyword={this.state.keywords[keyIndex]} onSend={this.sendHandler} />
       </div>
