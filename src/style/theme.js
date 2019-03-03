@@ -1,11 +1,11 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import blue from '@material-ui/core/colors/blue';
+import { convertHexToRGB } from 'material-ui/utils/colorManipulator';
 
 const theme = createMuiTheme({
   palette: {
     primary: {
       light: '#1c1c1c',
-      main: '#00733A',
+      main: '#323232',
       dark: '#535353',
     }
   },
