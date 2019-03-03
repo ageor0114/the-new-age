@@ -23,6 +23,13 @@ body {
   background-color: green;
 }
 
+#disabled{
+  curser:not-allowed;
+  disabled: true;
+  width: 600px;
+  height: 60px;
+}
+
 #wrong{
   color:white;
   background-color: red;
