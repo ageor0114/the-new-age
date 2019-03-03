@@ -44,10 +44,10 @@ const firebaseConfig = {
        REPLACE WITH YOUR FIREBASE CREDENTIALS
        --------
      */
-    apiKey: "AIzaSyAc_q2GfZSdtql6W76zbP6J3LG3s6OD3e4",
-    authDomain: "cooper-csesg-project-template.firebaseapp.com",
-    databaseURL: "https://cooper-csesg-project-template.firebaseio.com",
-    projectId: "cooper-csesg-project-template",
+    apiKey: "AIzaSyD_rV9qsvit9u12ppunfaL5h_IRysrVMT4",
+    authDomain: "hacktrin-project.firebaseapp.com",
+    databaseURL: "https://hacktrin-project.firebaseio.com/",
+    projectId: "hacktrin-project",
     storageBucket: "cooper-csesg-project-template.appspot.com",
     messagingSenderId: "871061605870"
 };
