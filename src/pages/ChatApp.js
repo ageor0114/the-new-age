@@ -54,7 +54,7 @@ class ChatApp extends React.Component {
         'internet',
         'bottle',
         'tight',
-        'zone',                              
+        'zone',
         'tomato',
         'prison',
         'hydro',
@@ -180,7 +180,7 @@ getNewKeyword(){
     let keyIndex = this.getNewKeyword();
     let turn;
 
-    
+
     turn = <h1 id="inline">Your Turn</h1>;
     return (
       <div>
@@ -190,7 +190,7 @@ getNewKeyword(){
         <div className="miniBar">
           <br/>
           <h1 id="inline" className="keyword">KEY WORD: {this.state.keywords[keyIndex]}</h1>
-          <Countdown renderer={renderer} onComplete={this.onComplete} id="inline" autostart="true" date={Date.now() + 10000}/>
+          <Countdown renderer={renderer} onComplete={this.onComplete} id="inline" autostart="true" date={Date.now() + 15000}/>
         </div>
         <Messages messages={this.state.messages} />
         <ChatInput changeCanType={(val) => this.changeCanType(val)} canType={this.state.canType} id="inputBox" keyword={this.state.keywords[keyIndex]} onSend={this.sendHandler} />

@@ -10,9 +10,9 @@ class Messages extends React.Component {
 
   render() {
     // Loop through all the messages in the state and create a Message component
-    
+
     const messages = <div>
-    <Message message={"Once upon a time, in the land of HackTrin . . ."}
+    <Message message={"Once upon a time, in the land of HackTrin..."}
     key="10000"
     username={" "}
     fromMe={true}/>
