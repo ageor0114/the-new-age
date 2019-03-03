@@ -111,12 +111,12 @@ h3 {
 }
 
 .message.from-me .message-body {
-  background-color: blue;
+  background-color: #61a866;
   color: white;
 }
 
 .message {
-  background-color: pink
+  //background-color: pink
   //#61a866;
 }
 .message-body {
@@ -148,8 +148,16 @@ display:none;
 }
 
 .bubble{
-background-color: #eeffe5;
+background-color: #dbffc9;
+border-style: solid;
+border-color: black;
 border-radius: 100px;
 display: inline-block;
 padding: 7px;
+
+}
+
+.pls{
+display: flex;
+
 }

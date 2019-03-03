@@ -18,7 +18,10 @@ class Messages extends React.Component {
     fromMe={true}/>
      {this.props.messages.map((message, i) => {
         return (
-          <div>
+          <div className ='pls'>
+          <div className ='bubble'>
+          {message.username[0].toUpperCase()}
+          </div>
           <Message
 
             key={i}
