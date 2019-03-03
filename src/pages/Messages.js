@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Message from './Message';
 
 class Messages extends React.Component {
@@ -17,7 +16,7 @@ class Messages extends React.Component {
             key={i}
             username={message.username}
             message={message.message}
-            fromMe={message.fromMe} />
+             />
         );
       });
 
