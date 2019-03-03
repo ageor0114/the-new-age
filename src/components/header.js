@@ -94,7 +94,7 @@ class Header extends React.Component{
 		    <Toolbar>
 			    <Typography variant="title" color="inherit" style={{flexGrow: 1}}>
 				<Link to="/">
-				    LineStory
+				    And After . . .
 				</Link>
 			    </Typography>
 			<div>

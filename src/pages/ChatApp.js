@@ -1,12 +1,13 @@
-
-
 import React from 'react';
 import io from 'socket.io-client';
 import config from '../config';
-
+import Grid from '@material-ui/core/Grid';
 import Messages from './Messages';
 import ChatInput from './ChatInput';
+import Messages2 from './Messages2';
+import ChatInput2 from './ChatInput2';
 require('../style/ChatApp.css');
+
 class ChatApp extends React.Component {
   socket = {};
   constructor(props) {
@@ -45,10 +46,21 @@ class ChatApp extends React.Component {
 
   render() {
     return (
+      <div>
+      <Grid item xs={12}>
+      <div className="together">
       <div className="container">
-        <h3>React Chat App</h3>
+        <h3>Build a Story!</h3>
         <Messages messages={this.state.messages} />
         <ChatInput onSend={this.sendHandler} />
+      </div>
+       <div className="container2">
+         <h3>Group Chat</h3>
+         <Messages2 messages={this.state.messages} />
+         <ChatInput2 onSend={this.sendHandler} />
+       </div>
+       </div>
+       </Grid>
       </div>
     );
   }
