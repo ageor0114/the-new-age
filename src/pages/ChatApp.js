@@ -77,7 +77,7 @@ class ChatApp extends React.Component {
 
 getNewKeyword(){
     let num = Math.floor(Math.random() * this.state.keywords.length);
-    
+
     return num;
   }
 
@@ -116,6 +116,7 @@ getNewKeyword(){
       <div className="container">
         <div className="miniBar">
           {turn}
+          <br/>
           <h1 id="inline">Key Word: {this.state.keywords[keyIndex]}</h1>
           <Countdown onComplete={this.onComplete} id="inline" autostart="true" date={Date.now() + 10000}/>
         </div>
@@ -123,9 +124,9 @@ getNewKeyword(){
         <ChatInput changeCanType={(val) => this.changeCanType(val)} canType={this.state.canType} id="inputBox" keyword={this.state.keywords[keyIndex]} onSend={this.sendHandler} />
       </div>
        <div className="container2">
-         <h3>Group Chat</h3>
-         <Messages messages={this.state.messages2} />
-         <ChatInput onSend={this.sendHandler2} />
+         <h3>Chat</h3>
+         <Messages2 messages={this.state.messages2} />
+         <ChatInput2 onSend={this.sendHandler2} />
        </div>
        </div>
        </Grid>

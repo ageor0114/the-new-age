@@ -28,7 +28,7 @@ class ChatInput2 extends React.Component {
   render() {
     return (
       <div>
-      <form className="chat-input" onSubmit={this.submitHandler}>
+      <form className="chat-input2" onSubmit={this.submitHandler}>
         <input type="text"
           onChange={this.textChangeHandler}
           value={this.state.chatInput}
