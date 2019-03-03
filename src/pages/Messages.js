@@ -10,7 +10,13 @@ class Messages extends React.Component {
 
   render() {
     // Loop through all the messages in the state and create a Message component
-    const messages = this.props.messages.map((message, i) => {
+    
+    const messages = <div>
+    <Message message={"Once upon a time, in the land of HackTrin . . ."}
+    key="10000"
+    username={" "}
+    fromMe={true}/>
+     {this.props.messages.map((message, i) => {
         return (
           <div>
           <Message
@@ -23,7 +29,8 @@ class Messages extends React.Component {
           </div>
 
         );
-      });
+      })}
+     </div>;
 
     return (
       <div className='messages' id='messageList'>

@@ -6,6 +6,12 @@ body {
     min-height: 100%;
     margin: 0;
 }
+
+.keyword{
+  float: left;
+  font-size: 20px;
+  margin-left: 20px;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -37,10 +43,12 @@ body {
 }
 
 .timerTitle{
-  font-size: 15px;
+  font-size: 20px;
+  float: right;
+  margin-right: 20px;
 }
 .miniBar{
-  background-color: #00733A;
+  background-color: #323232;
   height: 60px;
   color: white;
   font-size: 7px;
