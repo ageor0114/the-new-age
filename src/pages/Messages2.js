@@ -21,7 +21,7 @@ class Messages2 extends React.Component {
       });
 
     return (
-      <div className='messages' id='messageList'>
+      <div className='messages2' id='messageList'>
         { messages }
       </div>
     );
