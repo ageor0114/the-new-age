@@ -9,6 +9,15 @@ import ChatInput2 from './ChatInput2';
 import Countdown from 'react-countdown-now';
 require('../style/ChatApp.css');
 
+const renderer = ({hours, minutes, seconds, completed}) => {
+  if (completed){
+    return <h1 className="timerTitle">DONE</h1>;
+  }
+  else{
+    return <h1 className="timerTitle">{seconds} seconds</h1>;
+  }
+}
+
 class ChatApp extends React.Component {
   socket = {};
   constructor(props) {
@@ -107,7 +116,7 @@ getNewKeyword(){
     let keyIndex = this.getNewKeyword();
     let turn;
 
-    let t
+    
     turn = <h1 id="inline">Your Turn</h1>;
     return (
       <div>
@@ -118,16 +127,16 @@ getNewKeyword(){
           {turn}
           <br/>
           <h1 id="inline">Key Word: {this.state.keywords[keyIndex]}</h1>
-          <Countdown onComplete={this.onComplete} id="inline" autostart="true" date={Date.now() + 10000}/>
+          <Countdown renderer={renderer} onComplete={this.onComplete} id="inline" autostart="true" date={Date.now() + 10000}/>
         </div>
         <Messages messages={this.state.messages} />
         <ChatInput changeCanType={(val) => this.changeCanType(val)} canType={this.state.canType} id="inputBox" keyword={this.state.keywords[keyIndex]} onSend={this.sendHandler} />
       </div>
-       <div className="container2">
+       {/*<div className="container2">
          <h3>Chat</h3>
          <Messages2 messages={this.state.messages2} />
          <ChatInput2 onSend={this.sendHandler2} />
-       </div>
+       </div>*/}
        </div>
        </Grid>
       </div>

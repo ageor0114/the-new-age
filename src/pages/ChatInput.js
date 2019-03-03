@@ -101,21 +101,12 @@ class ChatInput extends React.Component {
     return (
       <div>
       <form className="chat-input"  onSubmit={this.submitHandler}>
-        {this.state.canType &&
         <input type="text"
           id={this.state.style}
           onChange={this.textChangeHandler}
           value={this.state.chatInput}
           placeholder="Write a message..."
-          required />}
-        {!this.state.canType &&
-          <input type="text"
-          id="disabled"
-          onChange={this.textChangeHandler}
-          value={this.state.chatInput}
-          placeholder="Waiting for your friend ..." disabled/>
-        }
-
+          required />
       </form>
       </div>
     );
