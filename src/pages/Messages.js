@@ -14,14 +14,12 @@ class Messages extends React.Component {
         return (
           <div>
           <Message
-          
+
             key={i}
             message={message.message}
+            username={message.username}
             fromMe={message.fromMe}
              />
-            <div className ='bubble'>
-            {message.username[0].toUpperCase()}
-            </div>
           </div>
 
         );

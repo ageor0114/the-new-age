@@ -1,8 +1,10 @@
 import React from 'react';
 import ChatApp from './ChatApp';
+import Logo from '../components/logo';
 
 require('../style/App.css');
 require('../style/Login.css');
+
 
 class SApp extends React.Component {
   constructor(props) {
@@ -24,6 +26,7 @@ class SApp extends React.Component {
   }
 
   render() {
+
     if (this.state.submitted) {
       // Form was submitted, now show the main App
       return (
@@ -33,8 +36,9 @@ class SApp extends React.Component {
 
     // Initial page load, show a simple login form
     return (
+      <div>
+      <Logo />
       <form onSubmit={this.usernameSubmitHandler} className="username-container">
-        <h1>And After . . .</h1>
         <div>
           <input
             type="text"
@@ -44,6 +48,7 @@ class SApp extends React.Component {
         </div>
         <input type="submit" value="Submit" />
       </form>
+      </div>
     );
   }
 

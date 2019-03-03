@@ -10,6 +10,9 @@ class Message extends React.Component {
         <div className='username'>
           { this.props.username }
         </div>
+        <div className ='bubble'>
+        {this.props.username[0].toUpperCase()}
+        </div>
         <div className='message-body'>
           { this.props.message }
         </div>
