@@ -74,6 +74,11 @@ class Header extends React.Component{
             Testing
           </Button>
         </Link>
+		<Link to="/testAva">
+          <Button color="inherit">
+            testAva
+          </Button>
+        </Link>
         <Link to="/login">
 			<Button color="inherit">
 			Login
@@ -94,7 +99,6 @@ class Header extends React.Component{
 		    <Toolbar>
 			    <Typography variant="title" color="inherit" style={{flexGrow: 1}}>
 				<Link to="/">
-				    LineStory
 				</Link>
 			    </Typography>
 			<div>
