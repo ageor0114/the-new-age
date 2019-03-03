@@ -23,6 +23,7 @@ class ChatApp extends React.Component {
         'goldfish'
       ], messages2:[]};
     this.sendHandler = this.sendHandler.bind(this);
+    this.sendHandler2 = this.sendHandler2.bind(this);
 
     // Connect to the server
     this.socket = io(config.api, { query: `username=${props.username}` }).connect();
@@ -100,8 +101,8 @@ getNewKeyword(){
       </div>
        <div className="container2">
          <h3>Group Chat</h3>
-         <Messages2 messages={this.state.messages2} />
-         <ChatInput2 onSend={this.sendHandler2} />
+         <Messages messages={this.state.messages2} />
+         <ChatInput onSend={this.sendHandler2} />
        </div>
        </div>
        </Grid>
