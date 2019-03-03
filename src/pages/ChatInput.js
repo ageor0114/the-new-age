@@ -10,19 +10,33 @@ class ChatInput extends React.Component {
     this.textChangeHandler = this.textChangeHandler.bind(this);
   }
 
+  hasWord(word, input)
+  {
+    let num = input.search(word);
+    if (num >= 0) return true;
+    else return false;
+  }
+
   submitHandler(event) {
     // Stop the form from refreshing the page on submit
     event.preventDefault();
+
+    //console.log("Submit Handler: " + this.props.keyword);
 
     // Clear the input box
     this.setState({ chatInput: '' });
 
     // Call the onSend callback with the chatInput message
-    this.props.onSend(this.state.chatInput);
+    console.log("keyword: " + this.props.keyword);
+    console.log("output: " + this.state.chatInput);
+    if (this.hasWord(this.props.keyword,this.state.chatInput))this.props.onSend(this.state.chatInput);
+    else alert('Sorry, you forgot to include the word!');
   }
 
   textChangeHandler(event)  {
     this.setState({ chatInput: event.target.value });
+    console.log("TCH Text: " + this.state.chatInput);
+    console.log("TCH Keyword: " + this.props.keyword);
   }
 
   render() {

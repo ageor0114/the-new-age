@@ -11,7 +11,16 @@ class ChatApp extends React.Component {
   socket = {};
   constructor(props) {
     super(props);
-    this.state = { messages: [] };
+    this.state = { messages: [],
+      keywords: [
+        'dog',
+        'cat',
+        'animal',
+        'sprite',
+        'bottle',
+        'dragon',
+        'goldfish'
+      ]};
     this.sendHandler = this.sendHandler.bind(this);
 
     // Connect to the server
@@ -43,12 +52,19 @@ class ChatApp extends React.Component {
     this.setState({ messages });
   }
 
+getNewKeyword(){
+    let num = Math.floor(Math.random() * this.state.keywords.length);
+    
+    return num;
+  }
   render() {
+    let keyIndex = this.getNewKeyword();
     return (
       <div className="container">
         <h3>React Chat App</h3>
+        <b><p>Keyword: {this.state.keywords[keyIndex]}</p></b>
         <Messages messages={this.state.messages} />
-        <ChatInput onSend={this.sendHandler} />
+        <ChatInput keyword={this.state.keywords[keyIndex]} onSend={this.sendHandler} />
       </div>
     );
   }
