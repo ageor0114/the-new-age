@@ -13,7 +13,8 @@ class ChatApp extends React.Component {
   socket = {};
   constructor(props) {
     super(props);
-    this.state = { messages: [],
+    this.state = { canType:true,
+      messages: [],
       turn: 'you',
       keywords: [
         'dog',
@@ -26,6 +27,7 @@ class ChatApp extends React.Component {
       ], messages2:[]};
     this.sendHandler = this.sendHandler.bind(this);
     this.sendHandler2 = this.sendHandler2.bind(this);
+    this.onComplete = this.onComplete.bind(this);
 
     // Connect to the server
     this.socket = io(config.api, { query: `username=${props.username}` }).connect();
@@ -88,6 +90,19 @@ getNewKeyword(){
     });
   }
 
+  onComplete(){
+    this.state.canType = true;
+    console.log("Can Type? " + this.state.canType);
+    }
+
+  changeCanType(val){
+    this.setState(prevState => {
+      let newState = prevState;
+      newState.canType = val;
+      return newState;
+    });
+  }
+
   render() {
     let keyIndex = this.getNewKeyword();
     let turn;
@@ -102,10 +117,10 @@ getNewKeyword(){
         <div className="miniBar">
           {turn}
           <h1 id="inline">Key Word: {this.state.keywords[keyIndex]}</h1>
-          <Countdown id="inline" autostart="true" date={Date.now() + 10000}/>
+          <Countdown onComplete={this.onComplete} id="inline" autostart="true" date={Date.now() + 10000}/>
         </div>
         <Messages messages={this.state.messages} />
-        <ChatInput keyword={this.state.keywords[keyIndex]} onSend={this.sendHandler} />
+        <ChatInput changeCanType={(val) => this.changeCanType(val)} canType={this.state.canType} id="inputBox" keyword={this.state.keywords[keyIndex]} onSend={this.sendHandler} />
       </div>
        <div className="container2">
          <h3>Group Chat</h3>

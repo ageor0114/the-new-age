@@ -3,7 +3,7 @@ import React from 'react';
 class ChatInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { chatInput: '', style: 'normal' };
+    this.state = { chatInput: '', style: 'normal', canType:true, first: true, };
 
     // React ES6 does not bind 'this' to event handlers by default
     this.submitHandler = this.submitHandler.bind(this);
@@ -38,9 +38,21 @@ class ChatInput extends React.Component {
       this.setState(prevState => {
       let newState = prevState;
       newState.style='normal';
+      newState.canType=false;
       return newState;
       });
-      this.props.onSend("And then " + this.state.chatInput);
+      this.props.changeCanType(false);
+      if (this.state.first) this.props.onSend(this.state.chatInput);
+      else
+      {
+        this.setState(prevState => {
+          let newState = prevState;
+          newState.first = false;
+          return newState;
+        })
+        this.props.onSend("And then" + this.state.chatInput);
+      }
+
     }
 
     else 
@@ -89,12 +101,21 @@ class ChatInput extends React.Component {
     return (
       <div>
       <form className="chat-input"  onSubmit={this.submitHandler}>
+        {this.state.canType &&
         <input type="text"
-        id={this.state.style}
+          id={this.state.style}
           onChange={this.textChangeHandler}
           value={this.state.chatInput}
           placeholder="Write a message..."
-          required />
+          required />}
+        {!this.state.canType &&
+          <input type="text"
+          id="disabled"
+          onChange={this.textChangeHandler}
+          value={this.state.chatInput}
+          placeholder="Waiting for your friend ..." disabled/>
+        }
+
       </form>
       </div>
     );
