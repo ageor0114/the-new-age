@@ -19,7 +19,7 @@ class Header extends React.Component{
 	    }
 	}
     }
-    
+
     logout(){
 	this.props.firebase.logout();
 	this.setState({
@@ -41,7 +41,7 @@ class Header extends React.Component{
 	    }
 	});
     }
-    
+
     render(){
 	let greeting;
 	if(!this.props.auth.isLoaded){
@@ -89,7 +89,7 @@ class Header extends React.Component{
 		    <Toolbar>
 			    <Typography variant="title" color="inherit" style={{flexGrow: 1}}>
 				<Link to="/">
-				    The Storytelling Game
+				    LineStory
 				</Link>
 			    </Typography>
 			<div>
